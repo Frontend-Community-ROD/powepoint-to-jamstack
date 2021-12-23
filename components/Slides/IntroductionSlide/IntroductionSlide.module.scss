@@ -1,0 +1,68 @@
+@import "../../../styles/variables/media-queries";
+@import "../../../styles/variables/font-weights";
+@import "../../../styles/shared/mixins";
+
+:global(.dark-theme) {
+    .content .textContainer {
+        :global(.title-medium) {
+            @include separator(rgb(var(--primary-white)));
+        }
+
+        :global(.subtitle-small) {
+            color: rgb(var(--primary-white));
+        }
+    }
+}
+
+.content {
+    position: relative;
+    width: 100%;
+}
+
+.mainLogo {
+    img {
+        object-fit: contain;
+    }
+
+    @media #{$max-width-md} {
+        > div {
+            width: 200px;
+        }
+    }
+}
+
+.textContainer {
+    @media #{$min-width-lg} {
+        max-width: 50vw;
+    }
+
+    :global(.title-medium) {
+        margin-bottom: 10px;
+        @include separator();
+
+        &::before {
+            margin: 50px 0 15px;
+        }
+    }
+
+    :global(.subtitle-small) {
+        color: rgb(var(--primary-black));
+    }
+}
+
+.companyLogo {
+    margin-top: 50px;
+
+    @media #{$max-width-md} {
+        > div {
+            width: 100px;
+        }
+    }
+
+    @media #{$min-width-lg} {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        margin-top: 0;
+    }
+}

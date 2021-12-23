@@ -1,0 +1,8 @@
+.content {
+    width: 100%;
+    text-align: center;
+
+    :global(.title) {
+        font-size: 70px;
+    }
+}

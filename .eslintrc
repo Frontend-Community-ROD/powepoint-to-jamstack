@@ -1,0 +1,30 @@
+{
+    "root": true,
+    "extends": [
+        "next/core-web-vitals",
+        "plugin:import/errors",
+        "plugin:import/warnings",
+        "prettier"
+    ],
+    "plugins": ["prettier"],
+    "settings": {
+        "import/resolver": {
+            "babel-module": {}
+        }
+    },
+    "rules": {
+        "prettier/prettier": ["error", { "printWidth": 100 }],
+        "require-jsdoc": [
+            "error",
+            {
+                "require": {
+                    "FunctionDeclaration": true,
+                    "MethodDefinition": false,
+                    "ClassDeclaration": false,
+                    "ArrowFunctionExpression": false,
+                    "FunctionExpression": false
+                }
+            }
+        ]
+    }
+}

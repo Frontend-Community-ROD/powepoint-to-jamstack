@@ -1,0 +1,74 @@
+@import "../../styles/variables/font-weights";
+@import "../../styles/shared/mixins";
+
+:global(.dark-theme) {
+    .navigation {
+        background-color: rgb(var(--secondary-light-gray));
+        @include custom-scrollbar(7px, rgb(var(--primary-white)), rgb(var(--primary-orange)));
+
+        button {
+            color: rgb(var(--primary-black));
+
+            svg path {
+                fill: rgb(var(--primary-black));
+            }
+        }
+    }
+}
+
+.navigation {
+    display: flex;
+    max-width: 90vw;
+    border-radius: 10px;
+    background-color: rgb(var(--primary-black));
+    transition: background-color ease 250ms;
+    overflow-x: auto;
+    @include custom-scrollbar(7px, rgb(var(--primary-black)), rgb(var(--primary-orange)));
+
+    button {
+        background-color: transparent;
+        border: none;
+        white-space: nowrap;
+        padding: 15px;
+        color: rgb(var(--primary-white));
+        font-weight: font-weight(bold);
+        transition: color ease 250ms, opacity ease 250ms;
+        text-transform: uppercase;
+
+        &:focus {
+            outline: none;
+        }
+
+        &:not(:disabled) {
+            cursor: pointer;
+
+            &.current,
+            &:hover {
+                color: rgb(var(--primary-orange));
+
+                svg path {
+                    fill: rgb(var(--primary-orange));
+                }
+            }
+        }
+
+        &:disabled {
+            opacity: 0.5;
+            cursor: default;
+
+            svg path {
+                fill: rgb(var(--secondary-light-gray));
+            }
+        }
+
+        svg {
+            display: block;
+            height: 12px;
+
+            path {
+                fill: rgb(var(--primary-white));
+                transition: fill ease 250ms;
+            }
+        }
+    }
+}

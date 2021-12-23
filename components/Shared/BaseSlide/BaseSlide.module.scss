@@ -1,0 +1,50 @@
+@import "../../../styles/variables/media-queries";
+
+$slide-animation-offset: 150px;
+
+:global(.dark-theme) {
+    .slide {
+        background-color: rgb(var(--primary-black));
+    }
+}
+
+.slide {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: var(--full-vh, 100vh);
+    max-height: var(--full-vh, 100vh);
+    padding: 100px var(--horizontal-padding);
+    background-image: var(--slide-bg-pattern);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: rgb(var(--primary-white));
+    overflow-y: auto;
+    overflow-x: hidden;
+    animation: slide-enter ease-out forwards 500ms;
+
+    display: flex;
+    align-items: center;
+
+    @media #{$max-width-md} {
+        --horizontal-padding: 25px;
+    }
+
+    &.hasOverflow {
+        align-items: flex-start;
+    }
+}
+
+@keyframes slide-enter {
+    from {
+        opacity: 0;
+        transform: translateX(calc(#{$slide-animation-offset} * var(--animation-direction)));
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}

@@ -1,0 +1,34 @@
+@import "../variables/media-queries";
+
+@mixin custom-scrollbar($size: 8px, $bg-color: #eee, $thumb-color: #999) {
+    // @media #{$min-width-md} {
+    &::-webkit-scrollbar {
+        width: $size;
+        height: $size;
+
+        &-track {
+            background-color: $bg-color;
+        }
+
+        &-thumb {
+            background-color: $thumb-color;
+        }
+    }
+    // }
+}
+
+@mixin separator($color: rgb(var(--primary-black)), $onTop: true) {
+    $pseudo-element: "before";
+
+    @if $onTop == false {
+        $pseudo-element: "after";
+    }
+
+    &::#{$pseudo-element} {
+        content: "";
+        display: block;
+        width: 50px;
+        height: 4px;
+        background-color: $color;
+    }
+}

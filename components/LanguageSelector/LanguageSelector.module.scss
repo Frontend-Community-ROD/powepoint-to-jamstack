@@ -1,0 +1,38 @@
+@import "../../styles/variables/font-weights";
+
+:global(.dark-theme) {
+    .languageSelector {
+        background-color: rgb(var(--secondary-light-gray));
+
+        button {
+            color: rgb(var(--primary-black));
+        }
+    }
+}
+
+.languageSelector {
+    display: flex;
+    border-radius: 10px;
+    background-color: rgb(var(--primary-black));
+    transition: background-color ease 250ms;
+
+    button {
+        border: none;
+        padding: 15px;
+        font-weight: font-weight(bold);
+        background-color: transparent;
+        text-transform: uppercase;
+        color: rgb(var(--primary-white));
+        transition: color ease 250ms;
+        cursor: pointer;
+
+        &:focus {
+            outline: none;
+        }
+
+        &.current,
+        &:hover {
+            color: rgb(var(--primary-orange));
+        }
+    }
+}

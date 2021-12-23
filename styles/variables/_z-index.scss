@@ -1,0 +1,12 @@
+$z-index: (
+    hideable-box: 50,
+    important: 100
+);
+
+@function z-index($key) {
+    @if (map-has-key($z-index, $key)) {
+        @return map-get($z-index, $key);
+    } @else {
+        @error "Key #{$key} doesn't exist";
+    }
+}

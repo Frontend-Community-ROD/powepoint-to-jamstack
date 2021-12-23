@@ -1,0 +1,36 @@
+@import "../../../styles/variables/media-queries";
+@import "../../../styles/variables/font-weights";
+
+.content {
+    :global(.title-medium) {
+        margin-top: 15px;
+    }
+
+    :global(.body-text-small) {
+        margin-top: 200px;
+
+        @media #{$max-width-md} {
+            margin-top: 100px;
+        }
+
+        ul,
+        ol {
+            text-transform: uppercase;
+            font-weight: font-weight(semi-bold);
+
+            li {
+                $counter-size: 18px;
+
+                &::before {
+                    width: $counter-size;
+                    margin-left: -$counter-size;
+                    margin-right: 20px;
+
+                    @media #{$max-width-md} {
+                        margin-right: 10px;
+                    }
+                }
+            }
+        }
+    }
+}

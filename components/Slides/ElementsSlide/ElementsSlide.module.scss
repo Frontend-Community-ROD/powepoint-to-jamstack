@@ -1,0 +1,59 @@
+@import "../../../styles/variables/media-queries";
+@import "../../../styles/shared/placeholders";
+@import "../../../styles/shared/mixins";
+
+:global(.dark-theme) {
+    .element {
+        :global(.subtitle) {
+            color: rgb(var(--primary-white));
+            @include separator(rgb(var(--primary-white)));
+        }
+
+        .icon {
+            @extend %colored-icon-dark-mod;
+        }
+    }
+}
+
+.content {
+    width: 100%;
+}
+
+.elements {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30%, 1fr));
+    grid-gap: 100px 50px;
+
+    @media #{$max-width-xl} {
+        grid-gap: 50px;
+    }
+
+    @media #{$max-width-sm} {
+        grid-template-columns: 1fr;
+    }
+}
+
+.element {
+    @media #{$min-width-sm} {
+        max-width: 75%;
+    }
+
+    .icon {
+        @extend %colored-icon-light;
+    }
+
+    :global(.subtitle) {
+        color: rgb(var(--primary-black));
+        margin-bottom: 15px;
+        @include separator();
+
+        &::before {
+            margin: 35px 0 15px;
+        }
+
+        + div {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+    }
+}
